@@ -9,3 +9,7 @@ This directory will be for the frond end API made with Next.js
 ## Deploy the project 
 
 * We should to have the docker image available before the deadline O_O
+
+## Dev env
+
+-   npx next dev
