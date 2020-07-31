@@ -2,7 +2,7 @@
 
 This directory will be for the back end API made with Nest.js
 
-Please put the `movies.json in the "data" folder`.
+Please put the `movies.json in the "resources" folder`.
 
 ###  URL
 
