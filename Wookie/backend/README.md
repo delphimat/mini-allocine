@@ -15,3 +15,7 @@ This directory will be for the back end API made with Nest.js
 ## Deploy the project 
 
 * We should to have the docker image available before the deadline O_O
+
+## Dev env
+
+-   npm  start dev
