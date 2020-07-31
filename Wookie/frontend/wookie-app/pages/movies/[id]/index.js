@@ -3,7 +3,7 @@ const Movie = (props) => {
 
     return (
         <div>
-            Hello world
+            View page
         </div>
     )
 }
