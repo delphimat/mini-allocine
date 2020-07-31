@@ -2,6 +2,8 @@
 
 This directory will be for the back end API made with Nest.js
 
+Please put the `movies.json in the "data" folder`.
+
 ###  URL
 
 - http://locathost:3001/movies
