@@ -45,7 +45,7 @@ const TopBar = () => {
                     <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span className="mr-2 d-none d-lg-inline text-gray-600 small">Mathieu Delphin</span>
-                        <img className="img-profile rounded-circle" src="img/mathieu.jpg"/>
+                        <img className="img-profile rounded-circle" src="/img/mathieu.jpg"/>
                     </a>
                 </li>
             </ul>

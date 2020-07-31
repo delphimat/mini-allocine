@@ -12,4 +12,4 @@ This directory will be for the frond end API made with Next.js
 
 ## Dev env
 
--   npx next dev
+-   `npx next dev`
