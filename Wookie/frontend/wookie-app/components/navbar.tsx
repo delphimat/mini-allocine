@@ -1,7 +1,7 @@
 const NavBar = () => {
     return (
         <ul className="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a className="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+            <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <div className="sidebar-brand-text mx-3">
                     <img src="/img/logo3.png" alt=""/>
                 </div>
