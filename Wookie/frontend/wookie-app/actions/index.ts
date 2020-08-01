@@ -13,5 +13,9 @@ export const getCategories = () => {
 }
 
 export const getMovieById = (id) => {
-    return axios.get(`${BASE_URL}/v1/movies/view/${id}`).then(res => res.data)
+    return axios.get(`${BASE_URL}/v1/movies/view/id/${id}`).then(res => res.data)
+}
+
+export const getMovieBySlug = (slug) => {
+    return axios.get(`${BASE_URL}/v1/movies/view/slug/${slug}`).then(res => res.data)
 }

@@ -7,7 +7,7 @@ const MovieCard = (props) => {
     return (
         <div className="col-xl-3 col-md-6 mb-4">
             <div className="card m-card shadow border-0">
-                <a href={`/movie/${movieCard.id}`}>
+                <a href={`/movie/${movieCard.slug}`}>
                     <div className="m-card-cover">
                         <div
                             className="position-absolute bg-white shadow-sm rounded text-center p-2 m-2 love-box">

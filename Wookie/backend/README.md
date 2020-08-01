@@ -8,7 +8,8 @@ Please put the `movies.json in the "resources" folder`.
 
 - http://locathost:3001/v1/movies
 - http://locathost:3001/v1/movies/categories
-- http://locathost:3001/v1/movies/view/[id]
+- http://locathost:3001/v1/movies/view/id/[id]
+- http://locathost:3001/v1/movies/view/slug/[slug]
 
 ### Actions 
 

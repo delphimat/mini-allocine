@@ -8,7 +8,6 @@ import {type} from "os";
 
 export default function Home() {
 
-    // const [movies, setMovies] = useState([])
     const [imgSliders, setImgSliders] = useState([])
     const [moviesByCategories, setMoviesByCategories] = useState([])
 
@@ -16,7 +15,6 @@ export default function Home() {
         const fetchData = async () => {
             let resMovies = await getMovies()
             let resMoviesByCategories = []
-            console.log(typeof resMoviesByCategories)
 
             resMovies = randomize(resMovies)
             resMovies.map( m => {
