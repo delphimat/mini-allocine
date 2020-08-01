@@ -6,8 +6,9 @@ Please put the `movies.json in the "resources" folder`.
 
 ###  URL
 
-- http://locathost:3001/movies
-- http://locathost:3001/movies/[id]
+- http://locathost:3001/v1/movies
+- http://locathost:3001/v1/movies/categories
+- http://locathost:3001/v1/movies/view/[id]
 
 ### Actions 
 
