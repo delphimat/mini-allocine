@@ -42,7 +42,7 @@ class MovieApp extends App {
                             <div className="container my-auto">
                                 <div className="copyright text-center my-auto">
                                     <span>Wookie <i className="fas fa-heart fa-fw text-danger"></i> by
-                                        <a target="https://validitylabs.org/" href="#">validitylabs</a>
+                                        <a target="_blank" href="https://validitylabs.org/"> ValidityLabs </a>
                                     </span>
                                 </div>
                             </div>
@@ -56,5 +56,7 @@ class MovieApp extends App {
   }
 
 }
+
+
 
 export default MovieApp

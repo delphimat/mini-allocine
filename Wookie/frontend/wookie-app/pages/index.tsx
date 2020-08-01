@@ -1,54 +1,58 @@
 import React from "react"
+import {getMovies} from "../actions/index"
+import {useState, useEffect} from "react";
+import {randomize} from "../helpers/functions"
+
 
 export default function Home() {
+
+    // const [movies, setMovies] = useState([])
+    const [imgSliders, setImgSliders] = useState([])
+    const [moviesByCategories, setMoviesByCategories] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            let resMovies = await getMovies()
+            let moviesByCategories = []
+
+            resMovies = randomize(resMovies)
+            resMovies.map( m => {
+                    m.genres.map(genre => {
+                        if (moviesByCategories[genre]){
+                            moviesByCategories[genre].push(m)
+                        } else {
+                            moviesByCategories[genre] = [m]
+                        }
+                    })
+            })
+
+            // get 8 images to display from the movies and random
+            setImgSliders(resMovies.slice(0, 8))
+            // create categories for movies
+            setMoviesByCategories(moviesByCategories)
+
+            console.log(moviesByCategories)
+        }
+
+        fetchData();
+    }, [])
+
     return (
         <React.Fragment>
-            <div className="osahan-slider slick-initialized slick-slider">
+            <div className="wookie-slider slick-initialized slick-slider">
                 <button className="slick-prev slick-arrow" aria-label="Previous" type="button" >Previous
                 </button>
+
                 <div className="slick-list draggable" style={{padding: "0px 200px"}}>
-                    <div className="slick-track"
-                         style={{opacity: "1", width : "2880px", transform : "translate3d(-1080px, 0px, 0px)" }}>
-
-                        <div className="osahan-slider-item slick-slide slick-cloned" tabIndex={-1} style={{width: "344px"}}
-                             data-slick-index="-2" aria-hidden="true">
-                            <img src="/img/slider2.jpg" className="img-fluid rounded" alt="..."/>
-                        </div>
-
-                        <div className="osahan-slider-item slick-slide slick-cloned" tabIndex={-1} style={{width: "344px"}}
-                             data-slick-index="-1" aria-hidden="true"><img
-                            src="/img/slider3.jpg" className="img-fluid rounded" alt="..."/>
-                        </div>
-                        <div className="osahan-slider-item slick-slide" tabIndex={-1} style={{width: "344px"}}
-                             data-slick-index="0"
-                             aria-hidden="true">
-                            <img src="/img/slider1.jpg"
-                                 className="img-fluid rounded" alt="..."/>
-                        </div>
-                        <div className="osahan-slider-item slick-slide slick-current slick-active slick-center"
-                             tabIndex={0}
-                             style={{width: "344px"}} data-slick-index="1" aria-hidden="false">
-                            <img
-                                src="/img/slider2.jpg" className="img-fluid rounded" alt="..."/>
-                        </div>
-                        <div className="osahan-slider-item slick-slide" tabIndex={-1} style={{width: "344px"}}
-                             data-slick-index="2"
-                             aria-hidden="true">
-                            <img src="/img/slider3.jpg"
-                                 className="img-fluid rounded" alt="..."/>
-                        </div>
-                        <div className="osahan-slider-item slick-slide slick-cloned" tabIndex={-1} style={{width: "344px"}}
-                             data-slick-index="3" aria-hidden="true"><img
-                            src="/img/slider1.jpg" className="img-fluid rounded" alt="..."/>
-                        </div>
-                        <div className="osahan-slider-item slick-slide slick-cloned" tabIndex={-1} style={{width: "344px"}}
-                             data-slick-index="4" aria-hidden="true"><img
-                            src="/img/slider2.jpg" className="img-fluid rounded" alt="..."/>
-                        </div>
-                        <div className="osahan-slider-item slick-slide slick-cloned" tabIndex={-1} style={{width: "344px"}}
-                             data-slick-index="5" aria-hidden="true"><img
-                            src="/img/slider3.jpg" className="img-fluid rounded" alt="..."/>
-                        </div>
+                    <div className="slick-track"  style={{opacity: "1", width : "2880px", transform : "translate3d(-1080px, 0px, 0px)" }}>
+                       {
+                            imgSliders && imgSliders.map((i, index) => (
+                                    <div key={index} className="wookie-slider-item slick-slide slick-cloned" tabIndex={-1} style={{width: "344px"}}
+                                         data-slick-index="-2" aria-hidden="true">
+                                        <img src={i.backdrop} className="img-fluid rounded" alt="..."/>
+                                    </div>
+                            ))
+                        }
                     </div>
                 </div>
                 <button className="slick-next slick-arrow" aria-label="Next" type="button" >Next</button>
