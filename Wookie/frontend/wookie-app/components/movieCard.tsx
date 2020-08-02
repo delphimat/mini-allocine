@@ -21,9 +21,9 @@ const MovieCard = (props) => {
                     <div className="card-body p-3">
                         <h5 className="card-title text-gray-900 mb-1">{movieCard.title}</h5>
                         <p className="card-text">
-                            <small className="text-muted">{movieCard.classification}</small>
+                            <small className="text-muted mr-2">{movieCard.classification}</small>
                             <small className="text-danger">
-                            <i className="fas fa-calendar-alt fa-sm text-gray-400"></i> { movieCard.released_on}</small>
+                            <i className="fas fa-calendar-alt fa-sm text-gray-400"></i> { new Date(movieCard.released_on).toLocaleDateString()}</small>
                         </p>
                     </div>
                 </a>

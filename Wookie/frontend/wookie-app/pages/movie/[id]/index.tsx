@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
 import { getMovieBySlug } from '../../../actions/index'
-import {useEffect, useState} from "react";
-import {randomize} from "../../../helpers/functions";
+import {Dispatch, SetStateAction, useEffect, useState} from "react";
+import { MovieType } from "../../../Model/movie";
 
 const Movie = (props) => {
 
-    const [movie, setMovie] = useState([])
+    const [movie , setMovie] : [MovieType[], Dispatch<SetStateAction<any>> ]  = useState([])
 
     const router = useRouter()
     const { id } = router.query
@@ -18,6 +18,7 @@ const Movie = (props) => {
         }
         fetchData();
     }, [])
+
 
     return (
         <div className="row">
@@ -39,7 +40,7 @@ const Movie = (props) => {
                         <h1 className="h6 mb-0 mt-3 font-weight-bold text-gray-900">Director</h1>
                         <p>{ movie.director }</p>
                         <h1 className="h6 mb-0 mt-3 font-weight-bold text-gray-900">Cast</h1>
-                        <p>{ movie.cast}</p>
+                        <p>{ movie.cast.join(', ') }</p>
                         <h1 className="h6 mb-0 mt-3 font-weight-bold text-gray-900">classification</h1>
                         <p>{ movie.classification}</p>
                 </div>
@@ -49,7 +50,7 @@ const Movie = (props) => {
                     <div className="row d-flex align-items-center justify-content-between p-3 border-bottom">
                         <div className="col-lg-7 m-b-4">
                             <h3 className="text-gray-900 mb-0 mt-0 font-weight-bold">
-                                {movie.title} <small>{movie.released_on}</small></h3>
+                                {movie.title} <small>{ new Date(movie.released_on).toLocaleDateString()}</small></h3>
                             <p className="mb-0 text-gray-800"><small className="text-muted">
                                 <i className="fas fa-film fa-fw fa-sm mr-1"></i> { movie.genres }</small>
                             </p>
@@ -67,7 +68,7 @@ const Movie = (props) => {
                     <ul className="nav nav-tabs" id="myTab" role="tablist">
                         <li className="nav-item">
                             <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                               aria-controls="home" aria-selected="true">Summary</a>
+                               aria-controls="home" aria-selected="true">Overview</a>
                         </li>
                     </ul>
                     <div className="tab-content" id="myTabContent">
