@@ -2,12 +2,11 @@ import algoliasearch from 'algoliasearch/lite';
 import React, { Component } from 'react';
 import {
     InstantSearch,
-    RefinementList,
     Configure,
 } from 'react-instantsearch-dom';
 
-import WookieSearchBox from "../components/customSearchBox";
-import WookieHits from "../components/customHits";
+import WookieSearchBox from "./customSearchBox";
+import WookieHits from "./customHits";
 
 const searchClient = algoliasearch(
     'OQGENTZBQK',
@@ -18,12 +17,9 @@ export default function Search(props) {
 
     return (
         <InstantSearch indexName="dev_wookie_movie" searchClient={searchClient}>
-            <div className="right-panel">
                 <Configure  />
-                <p>search box</p>
                 <WookieSearchBox />
                 <WookieHits  />
-            </div>
         </InstantSearch>
     )
 }

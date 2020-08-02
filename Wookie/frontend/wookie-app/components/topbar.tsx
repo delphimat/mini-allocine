@@ -1,3 +1,6 @@
+import Search from "./search";
+
+
 const TopBar = () => {
     return (
         <nav className="navbar navbar-expand navbar-dark topbar mb-4 pl-0 static-top shadow">
@@ -5,17 +8,7 @@ const TopBar = () => {
                 <i className="fa fa-bars"></i>
             </button>
 
-            <form className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
-                <div className="input-group">
-                    <input type="text" className="form-control bg-white border-0 small"
-                           placeholder="Search for Movies ..." aria-label="Search" aria-describedby="basic-addon2"/>
-                        <div className="input-group-append">
-                            <button className="btn bg-white" type="button">
-                                <i className="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                </div>
-            </form>
+            <Search/>
 
             <ul className="navbar-nav ml-auto">
 
