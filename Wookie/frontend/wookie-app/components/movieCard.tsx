@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link'
 
 const MovieCard = (props) => {
 
@@ -7,7 +8,8 @@ const MovieCard = (props) => {
     return (
         <div className="col-xl-3 col-md-6 mb-4">
             <div className="card m-card shadow border-0">
-                <a href={`/movie/${movieCard.slug}`}>
+                <Link href={"/movie/[id]"} as={`/movie/${movieCard.slug}`}>
+                    <a>
                     <div className="m-card-cover">
                         <div
                             className="position-absolute bg-white shadow-sm rounded text-center p-2 m-2 love-box">
@@ -27,6 +29,7 @@ const MovieCard = (props) => {
                         </p>
                     </div>
                 </a>
+                </Link>
             </div>
         </div>
     )

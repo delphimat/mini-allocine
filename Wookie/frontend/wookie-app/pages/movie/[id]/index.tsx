@@ -3,6 +3,7 @@ import { getMovieBySlug } from '../../../actions/index'
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import { MovieType } from "../../../Model/movie";
 
+
 const Movie = (props) => {
 
     const [movie , setMovie] : [MovieType[], Dispatch<SetStateAction<any>> ]  = useState([])
@@ -40,7 +41,7 @@ const Movie = (props) => {
                         <h1 className="h6 mb-0 mt-3 font-weight-bold text-gray-900">Director</h1>
                         <p>{ movie.director }</p>
                         <h1 className="h6 mb-0 mt-3 font-weight-bold text-gray-900">Cast</h1>
-                        <p>{ movie.cast.join(', ') }</p>
+                        <p>{ movie.cast && movie.cast.join(', ') }</p>
                         <h1 className="h6 mb-0 mt-3 font-weight-bold text-gray-900">classification</h1>
                         <p>{ movie.classification}</p>
                 </div>
@@ -52,7 +53,7 @@ const Movie = (props) => {
                             <h3 className="text-gray-900 mb-0 mt-0 font-weight-bold">
                                 {movie.title} <small>{ new Date(movie.released_on).toLocaleDateString()}</small></h3>
                             <p className="mb-0 text-gray-800"><small className="text-muted">
-                                <i className="fas fa-film fa-fw fa-sm mr-1"></i> { movie.genres }</small>
+                                <i className="fas fa-film fa-fw fa-sm mr-1"></i> { movie.genres && movie.genres.join(", ") }</small>
                             </p>
                         </div>
                     </div>
