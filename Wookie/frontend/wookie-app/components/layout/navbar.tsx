@@ -39,11 +39,12 @@ const NavBar = (props) => {
                 </a>
             </Link>
             <li className="nav-item active">
-
-                <a className="nav-link" href="#">
-                    <i className="fas fa-fw fa-film"></i>
-                    <span>Rating</span>
-                </a>
+                <Link href={"/"} as={"/"}>
+                    <a className="nav-link" href="#">
+                        <i className="fas fa-fw fa-film"></i>
+                        <span>Rating</span>
+                    </a>
+                </Link>
 
             </li>
 
@@ -55,11 +56,12 @@ const NavBar = (props) => {
             </li>
             <hr className="sidebar-divider" />
             <li className="nav-item active">
-
-                <a className="nav-link" href="#">
-                    <i className="fas fa-fw fa-film"></i>
-                    <span>Movies</span>
-                </a>
+                <Link href={"/"} as={"/"}>
+                    <a className="nav-link" href="#">
+                        <i className="fas fa-fw fa-film"></i>
+                        <span>Movies</span>
+                    </a>
+                </Link>
             </li>
             <hr className="sidebar-divider" />
             {

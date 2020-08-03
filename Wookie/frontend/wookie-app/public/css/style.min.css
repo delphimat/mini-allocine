@@ -38,7 +38,8 @@ a {
 .wookie-slider-item {
     margin: 0 8px;
     outline: 0;
-    cursor: pointer
+    cursor: pointer;
+    padding: 0.1rem;
 }
 
 .wookie-slider {
@@ -6476,7 +6477,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 .rounded {
-    border-radius: .35rem !important
+    border-radius: .55rem !important
 }
 
 .rounded-top {

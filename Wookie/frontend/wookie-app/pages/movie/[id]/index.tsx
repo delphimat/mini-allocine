@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
-import { getMovieBySlug } from '../../../actions/index'
+import { getMovieBySlug } from '../../../actions'
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
-import { MovieType } from "../../../Model/movie";
+import { MovieType } from "../../../model/movie";
 
 
 const Movie = (props) => {
