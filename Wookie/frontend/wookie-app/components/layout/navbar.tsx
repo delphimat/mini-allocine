@@ -49,10 +49,10 @@ const NavBar = (props) => {
             </li>
 
             <li  className="nav-item">
-                <a className="nav-link" href="#">
+                <span className="nav-link" >
                     <i className="fa fa-star" aria-hidden="true" onClick={changeSelectRating} data-rating={8.5} > Top movies +8.5 / 10 </i>
                     {ratingSelected && (<i className="fa fa-check ml-3" aria-hidden="true"></i>)}
-                </a>
+                </span>
             </li>
             <hr className="sidebar-divider" />
             <li className="nav-item active">
@@ -67,10 +67,11 @@ const NavBar = (props) => {
             {
                 categories.map((categorie, index) => (
                     <li key={index} className="nav-item">
-                        <a className="nav-link" href="#" >
-                            <i  className="fas fa-fw fa-fire"></i><span onClick={changeSelectCategorie}   data-categorie={categorie}> {categorie} </span>
+                        <span className="nav-link"  >
+                            <i className="fa fa-camera" aria-hidden="true"></i>
+                            <span onClick={changeSelectCategorie}   data-categorie={categorie}  > {categorie} </span>
                             {categoriesSelected.includes(categorie) && (<i className="fa fa-check ml-3" aria-hidden="true"></i>)}
-                        </a>
+                        </span>
                     </li>
                 ))
             }

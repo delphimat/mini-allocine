@@ -159,7 +159,7 @@ class MovieApp extends App {
                         </div>
                     </div>
                 </div>
-                <script src="/js/private.js"></script>
+                {/*<script src="/js/private.js"></script>*/}
             </div>
 
 
