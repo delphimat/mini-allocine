@@ -49,7 +49,7 @@ const NavBar = (props) => {
 
             <li  className="nav-item">
                 <span className="nav-link" >
-                    <i className="fa fa-star" aria-hidden="true" onClick={changeSelectRating} data-rating={8.5} > Top movies +8.5 / 10 </i>
+                    <i className="fa fa-star" aria-hidden="true" onClick={changeSelectRating} data-rating={8.5} > Top movies +8.5  </i>
                     {ratingSelected && (<i className="fa fa-check ml-3" aria-hidden="true"></i>)}
                 </span>
             </li>

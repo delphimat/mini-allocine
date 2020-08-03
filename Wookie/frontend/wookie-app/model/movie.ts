@@ -1,5 +1,5 @@
 
-export interface MovieType {
+export interface MovieI {
 
     backdrop: string,
 

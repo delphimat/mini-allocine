@@ -1,12 +1,25 @@
 import { useRouter } from 'next/router'
 import { getMovieBySlug } from '../../../actions'
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
-import { MovieType } from "../../../model/movie";
+import { MovieI } from "../../../model/movie";
 
+const Movie = () => {
 
-const Movie = (props) => {
-
-    const [movie , setMovie] : [MovieType[], Dispatch<SetStateAction<any>> ]  = useState([])
+    const [movie , setMovie]  = useState<MovieI>({
+                                                    backdrop: "",
+                                                    cast: [] ,
+                                                    classification: "",
+                                                    director: "",
+                                                    genres: [],
+                                                    id: "",
+                                                    imdb_rating: null ,
+                                                    length: "",
+                                                    overview: "",
+                                                    poster: "",
+                                                    released_on: "",
+                                                    slug: "",
+                                                    title: ""
+                                                })
 
     const router = useRouter()
     const { id } = router.query
@@ -19,7 +32,6 @@ const Movie = (props) => {
         }
         fetchData();
     }, [])
-
 
     return (
         <div className="row">
