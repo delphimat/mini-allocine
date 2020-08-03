@@ -2,13 +2,54 @@ import App from 'next/app'
 import Head from "next/head";
 import Navbar from "../components/navbar"
 import TopBar from "../components/topbar";
+import {randomize} from "../helpers/functions";
 
 class MovieApp extends App {
 
   static async getInitialProps(appContext) {
     const appProps = await App.getInitialProps(appContext)
-
     return { ...appProps }
+  }
+
+  constructor(props) {
+      super(props);
+
+      this.state = {
+          movies: [],
+          moviesByCategories: [],
+          imgSliders: []
+      }
+  }
+
+  formatDataMovies = (movies) => {
+      let   moviesByCategories = []
+
+      movies.map( m => {
+          m.genres.map(genre => {
+              if (moviesByCategories[genre] === undefined){
+                  moviesByCategories[genre] = []
+              }
+              moviesByCategories[genre].push(m)
+          })
+      })
+
+      // create categories for movies
+      this.setState({
+          movies: [...movies],
+          moviesByCategories: moviesByCategories,
+          imgSliders: movies.slice(0, 8)
+      })
+  }
+
+  updateStateHits = (rows) => {
+      console.log("verification si on veut mettre a jour movies")
+      console.log(rows)
+
+      this.formatDataMovies(rows)
+  }
+
+  updateStateMovies = (rows) => {
+      this.formatDataMovies(randomize(rows))
   }
 
   render () {
@@ -33,9 +74,16 @@ class MovieApp extends App {
                     <Navbar/>
                     <div id="content-wrapper" className="d-flex flex-column">
                         <div id="content">
-                            <TopBar/>
+                            <TopBar updateStateHits={this.updateStateHits} />
                             <div className="container-fluid">
-                                <Component {...pageProps} />
+                                <Component
+                                    {...pageProps}
+                                    moviesByCategories={this.state.moviesByCategories}
+                                    movies={this.state.movies}
+                                    imgSliders={this.state.imgSliders}
+                                    updateStateMovies={this.updateStateMovies}
+
+                                />
                             </div>
                         </div>
                         <footer className="sticky-footer bg-white">

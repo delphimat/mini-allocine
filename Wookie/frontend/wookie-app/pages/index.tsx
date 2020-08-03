@@ -1,36 +1,23 @@
 import React from "react"
 import { getMovies } from "../actions/index"
 import { useState, useEffect} from "react"
-import { randomize } from "../helpers/functions"
 import MovieList from "../components/movieList"
+import {use} from "ast-types";
 
-export default function Home() {
+export default function Home(props) {
 
-    const [imgSliders, setImgSliders] = useState([])
-    const [moviesByCategories, setMoviesByCategories] = useState([])
+    const { movies, moviesByCategories, imgSliders , updateStateMovies } = props
 
     useEffect(() => {
         const fetchData = async () => {
-            let resMovies = await getMovies()
-            let resMoviesByCategories = []
-
-            resMovies = randomize(resMovies)
-            resMovies.map( m => {
-                    m.genres.map(genre => {
-                        if (resMoviesByCategories[genre] === undefined){
-                            resMoviesByCategories[genre] = []
-                        }
-                        resMoviesByCategories[genre].push(m)
-                    })
-            })
-
-            // get 8 images to display from the movies and random
-            setImgSliders(resMovies.slice(0, 8))
-            // create categories for movies
-            setMoviesByCategories(resMoviesByCategories)
+            if (movies === undefined || movies.length === 0 ) {
+                console.log("!!! Chargement movie api !!! ")
+                let resMovies = await getMovies()
+                updateStateMovies(resMovies)
+            }
         }
 
-        fetchData();
+        fetchData()
     }, [])
 
     const categories = Object.keys(moviesByCategories).sort()

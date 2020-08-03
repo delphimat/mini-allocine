@@ -1,14 +1,17 @@
 import Search from "./search";
 
 
-const TopBar = () => {
+const TopBar = (props) => {
+
+    const { updateStateHits } = props
+
     return (
         <nav className="navbar navbar-expand navbar-dark topbar mb-4 pl-0 static-top shadow">
             <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
                 <i className="fa fa-bars"></i>
             </button>
 
-            <Search/>
+            <Search updateStateHits={updateStateHits} />
 
             <ul className="navbar-nav ml-auto">
 
