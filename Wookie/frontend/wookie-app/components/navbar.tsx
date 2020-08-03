@@ -31,6 +31,20 @@ const NavBar = (props) => {
 
                 <a className="nav-link" href="#">
                     <i className="fas fa-fw fa-film"></i>
+                    <span>Rating</span>
+                </a>
+            </li>
+
+            <li  className="nav-item">
+                <a className="nav-link" href="#">
+                    <i className="fa fa-star" aria-hidden="true"> Top movies +8.5/10 </i>
+                </a>
+            </li>
+            <hr className="sidebar-divider" />
+            <li className="nav-item active">
+
+                <a className="nav-link" href="#">
+                    <i className="fas fa-fw fa-film"></i>
                     <span>Movies</span>
                 </a>
             </li>

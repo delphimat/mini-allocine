@@ -17,7 +17,8 @@ class MovieApp extends App {
       this.state = {
           movies: [],
           moviesByCategories: [],
-          imgSliders: []
+          imgSliders: [],
+          categoriesSelected: []
       }
   }
 
