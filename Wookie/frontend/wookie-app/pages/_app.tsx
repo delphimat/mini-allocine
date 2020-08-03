@@ -58,10 +58,42 @@ class MovieApp extends App {
       })
   }
 
-  updateStateHits = (rows) => {
-      console.log("verification si on veut mettre a jour movies")
-      console.log(rows)
+  updateStateRating = (minRating) => {
+      let ratingSelected = this.state.ratingSelected
 
+      if (ratingSelected === null) {
+          ratingSelected = minRating
+      } else {
+          ratingSelected = null
+      }
+
+      console.log("Rating Selected ")
+      console.log(ratingSelected)
+
+      this.setState({
+          ratingSelected: ratingSelected,
+      })
+  }
+
+  updateStateCategories = (categorie) => {
+      let categoriesSelected = this.state.categoriesSelected
+
+      if (categoriesSelected.includes(categorie)) {
+          // remove the categorie
+          categoriesSelected = categoriesSelected.filter(c => (c != categorie))
+      } else {
+          // add the categorie
+          categoriesSelected.push(categorie)
+      }
+
+      console.log("we want to push")
+      console.log(categoriesSelected)
+      this.setState({
+          categoriesSelected: [...categoriesSelected],
+      })
+  }
+
+  updateStateHits = (rows) => {
       this.formatDataMovies(rows)
   }
 
@@ -88,7 +120,13 @@ class MovieApp extends App {
             </Head>
             <div id="page-top">
                 <div id="wrapper">
-                    <Navbar/>
+                    <Navbar
+                        categoriesSelected={this.state.categoriesSelected}
+                        ratingSelected={this.state.ratingSelected}
+
+                        updateStateCategories={this.updateStateCategories}
+                        updateStateRating={this.updateStateRating}
+                    />
                     <div id="content-wrapper" className="d-flex flex-column">
                         <div id="content">
                             <TopBar updateStateHits={this.updateStateHits} />
