@@ -1,4 +1,4 @@
-import { getCategories } from "../actions/index"
+import { getCategories } from "../../actions"
 import {useState, useEffect} from "react";
 import Link from 'next/link'
 

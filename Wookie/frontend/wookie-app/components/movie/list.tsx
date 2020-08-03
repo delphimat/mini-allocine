@@ -1,5 +1,5 @@
 import React from "react";
-import MovieCard from "./movieCard";
+import MovieCard from "./card";
 
 const MovieList = (props) => {
 
@@ -14,8 +14,8 @@ const MovieList = (props) => {
             </div>
             <div className="row">
                 {movieList.map((m, index) => {
-                        return (<MovieCard key={index} movieCard={m} />)
-                    })
+                    return (<MovieCard key={index} movieCard={m} />)
+                })
                 }
 
             </div>

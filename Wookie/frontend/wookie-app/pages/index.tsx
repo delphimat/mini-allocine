@@ -1,7 +1,7 @@
 import React from "react"
 import { getMovies } from "../actions/index"
 import { useState, useEffect} from "react"
-import MovieList from "../components/movieList"
+import MovieList from "../components/movie/list"
 
 export default function Home(props) {
 

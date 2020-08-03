@@ -1,7 +1,7 @@
 import App from 'next/app'
 import Head from "next/head";
-import Navbar from "../components/navbar"
-import TopBar from "../components/topbar";
+import Navbar from "../components/layout/navbar"
+import TopBar from "../components/layout/topbar";
 import {randomize} from "../helpers/functions";
 
 class MovieApp extends App {

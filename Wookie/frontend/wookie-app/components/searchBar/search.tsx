@@ -5,8 +5,8 @@ import {
     Configure,
 } from 'react-instantsearch-dom';
 
-import WookieSearchBox from "./customSearchBox";
-import WookieHits from "./customHits";
+import WookieSearchBox from "./formSearchBox";
+import WookieHits from "./renderHits";
 
 const searchClient = algoliasearch(
     'OQGENTZBQK',

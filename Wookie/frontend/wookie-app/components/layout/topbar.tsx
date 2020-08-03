@@ -1,5 +1,4 @@
-import Search from "./search";
-
+import Search from "../searchBar/search";
 
 const TopBar = (props) => {
 
