@@ -18,14 +18,30 @@ class MovieApp extends App {
           movies: [],
           moviesByCategories: [],
           imgSliders: [],
-          categoriesSelected: []
+          categoriesSelected: [],
+          ratingSelected: null
       }
   }
 
   formatDataMovies = (movies) => {
       let   moviesByCategories = []
 
-      movies.map( m => {
+      movies
+          .filter( m => {
+              // if the option rating is set and the movie is below, so we skip it
+              if (this.state.ratingSelected &&  m.imdb_rating <  this.state.ratingSelected) {
+                  return false
+              }
+
+              // if the option categories is set and the movie dont have the genre, so we skip it
+              if (this.state.categoriesSelected.length && m.genres.length) {
+                  const intersection = this.state.categoriesSelected.filter(element => m.genres.includes(element));
+                  return 0 < intersection.length
+              }
+
+              return true
+          })
+          .map( m => {
           m.genres.map(genre => {
               if (moviesByCategories[genre] === undefined){
                   moviesByCategories[genre] = []

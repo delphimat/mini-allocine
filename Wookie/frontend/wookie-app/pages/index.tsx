@@ -2,7 +2,6 @@ import React from "react"
 import { getMovies } from "../actions/index"
 import { useState, useEffect} from "react"
 import MovieList from "../components/movieList"
-import {use} from "ast-types";
 
 export default function Home(props) {
 
