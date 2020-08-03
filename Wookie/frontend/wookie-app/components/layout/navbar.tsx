@@ -11,7 +11,6 @@ const NavBar = (props) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            console.log("chargement categorie")
             const resCategories = await getCategories()
             setCategories(resCategories)
             setReady(1)
@@ -34,7 +33,7 @@ const NavBar = (props) => {
             <Link href={"/"} as={"/"}>
                 <a className="sidebar-brand d-flex align-items-center justify-content-center" >
                     <div className="sidebar-brand-text mx-3">
-                        <img src="/img/logo3.png" alt=""/>
+                        <img style={{borderRadius: "100%"}} src="/img/logo3.png" alt=""/>
                     </div>
                 </a>
             </Link>

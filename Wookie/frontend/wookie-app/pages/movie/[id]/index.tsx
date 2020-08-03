@@ -75,6 +75,12 @@ const Movie = (props) => {
                     <div className="tab-content" id="myTabContent">
                         <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <p className="mt-0 mb-3">{movie.overview}</p>
+
+                            <div>
+                                <a target="blank" href={"https://www.youtube.com/results?search_query="+movie.title}>
+                                    <i className="fa fa-podcast" aria-hidden="true"></i> See more
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
