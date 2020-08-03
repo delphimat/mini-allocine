@@ -1,5 +1,7 @@
 import React from "react";
 import MovieCard from "./card";
+import PropTypes from "prop-types";
+import Carrousel from "./carrousel";
 
 const MovieList = (props) => {
 
@@ -22,5 +24,16 @@ const MovieList = (props) => {
         </React.Fragment>
     )
 }
+
+MovieList.propTypes = {
+    category: PropTypes.string,
+    movieList: PropTypes.array,
+};
+
+// Same approach for defaultProps too
+MovieList.defaultProps = {
+    category: "",
+    movieList: [],
+};
 
 export default MovieList

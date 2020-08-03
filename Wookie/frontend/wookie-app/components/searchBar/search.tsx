@@ -7,6 +7,8 @@ import {
 
 import WookieSearchBox from "./formSearchBox";
 import WookieHits from "./renderHits";
+import PropTypes from "prop-types";
+import NavBar from "../layout/navbar";
 
 const searchClient = algoliasearch(
     'OQGENTZBQK',
@@ -54,8 +56,12 @@ export default function Search(props) {
     );
 }
 
+Search.propTypes = {
+    updateStateHits: PropTypes.func,
+};
 
-// Hit.propTypes = {
-//     hit: PropTypes.object.isRequired,
-// };
+// Same approach for defaultProps too
+Search.defaultProps = {
+    updateStateHits: null,
+};
 

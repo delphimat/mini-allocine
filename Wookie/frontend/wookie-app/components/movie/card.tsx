@@ -1,5 +1,7 @@
 import React from "react";
 import Link from 'next/link'
+import PropTypes from "prop-types";
+import TopBar from "../layout/topbar";
 
 const MovieCard = (props) => {
 
@@ -34,5 +36,15 @@ const MovieCard = (props) => {
         </div>
     )
 }
+
+MovieCard.propTypes = {
+    movieCard: PropTypes.func,
+};
+
+// Same approach for defaultProps too
+MovieCard.defaultProps = {
+    movieCard: null,
+};
+
 
 export default MovieCard

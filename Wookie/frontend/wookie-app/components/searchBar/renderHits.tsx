@@ -5,13 +5,11 @@ import { useState, useEffect} from "react"
 
 const Hits = ({ hits, updateStateHits }) => {
 
-    console.log("Call - Component HITS ")
-
     const [canDisplay, setCanDisplay] = useState(false)
 
     useEffect(() => {
         updateStateHits(hits)
-        // add in the confil file later, we dont want to display when there is too many choices
+        // TODO  add in the config file later, we dont want to display when there is too many choices
         if (hits.length < 12) {
             setCanDisplay(true)
         } else {

@@ -1,4 +1,6 @@
 import Search from "../searchBar/search";
+import PropTypes from "prop-types";
+import NavBar from "./navbar";
 
 const TopBar = (props) => {
 
@@ -47,4 +49,14 @@ const TopBar = (props) => {
         </nav>
     )
 }
+
+TopBar.propTypes = {
+    updateStateHits: PropTypes.func,
+};
+
+// Same approach for defaultProps too
+TopBar.defaultProps = {
+    updateStateHits: null,
+};
+
 export default TopBar

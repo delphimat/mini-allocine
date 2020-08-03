@@ -1,6 +1,8 @@
 import Slider from "react-slick";
 import Link from "next/link";
 import React from "react";
+import PropTypes from "prop-types";
+import MovieCard from "./card";
 
 
 const Carrousel = (props) => {
@@ -33,5 +35,14 @@ const Carrousel = (props) => {
         </Slider>
     )
 }
+
+Carrousel.propTypes = {
+    imgSliders: PropTypes.array,
+};
+
+// Same approach for defaultProps too
+Carrousel.defaultProps = {
+    imgSliders: null,
+};
 
 export default Carrousel

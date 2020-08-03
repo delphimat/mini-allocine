@@ -1,17 +1,19 @@
 import React from "react"
 
-import { getMovies } from "../actions/index"
-import { useState, useEffect} from "react"
+import {getMovies} from "../actions/index"
+import {useState, useEffect} from "react"
 import MovieList from "../components/movie/list"
 import Carrousel from "../components/movie/carrousel";
+import PropTypes from "prop-types";
+import MovieCard from "../components/movie/card";
 
 export default function Home(props) {
 
-    const { movies, moviesByCategories, imgSliders , updateStateMovies } = props
+    const {movies, moviesByCategories, imgSliders, updateStateMovies} = props
 
     useEffect(() => {
         const fetchData = async () => {
-            if (movies === undefined || movies.length === 0 ) {
+            if (movies === undefined || movies.length === 0) {
                 console.log("!!! Chargement movie api !!! ")
                 let resMovies = await getMovies()
                 updateStateMovies(resMovies)
@@ -26,9 +28,9 @@ export default function Home(props) {
 
     return (
         <React.Fragment>
-            {displayCarrouseul && (<Carrousel imgSliders={imgSliders} />)}
+            {displayCarrouseul && (<Carrousel imgSliders={imgSliders}/>)}
 
-            {categories.map((c: string, index : number) => {
+            {categories.map((c: string, index: number) => {
                 return (
                     <MovieList
                         key={index}
@@ -42,5 +44,20 @@ export default function Home(props) {
             <div className="d-sm-flex align-items-center justify-content-between mt-1 mb-3">
             </div>
         </React.Fragment>
-)
+    )
 }
+
+Home.propTypes = {
+    movies: PropTypes.array,
+    moviesByCategories: PropTypes.array,
+    imgSliders: PropTypes.array,
+    updateStateMovies: PropTypes.func
+};
+
+// Same approach for defaultProps too
+Home.defaultProps = {
+    movies: [],
+    moviesByCategories: [],
+    imgSliders: [],
+    updateStateMovies: null,
+};

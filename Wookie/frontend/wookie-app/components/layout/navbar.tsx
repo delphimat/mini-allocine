@@ -1,6 +1,7 @@
 import { getCategories } from "../../actions"
 import {useState, useEffect} from "react";
 import Link from 'next/link'
+import PropTypes from "prop-types";
 
 const NavBar = (props) => {
 
@@ -77,5 +78,20 @@ const NavBar = (props) => {
         </ul>
     )
 }
+
+NavBar.propTypes = {
+    categoriesSelected: PropTypes.arrayOf(PropTypes.string),
+    ratingSelected: PropTypes.number,
+    updateStateCategories: PropTypes.func,
+    updateStateRating: PropTypes.func,
+};
+
+// Same approach for defaultProps too
+NavBar.defaultProps = {
+    categoriesSelected: [],
+    ratingSelected: null,
+    updateStateCategories: null,
+    updateStateRating: null,
+};
 
 export default NavBar
