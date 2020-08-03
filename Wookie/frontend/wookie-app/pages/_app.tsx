@@ -34,19 +34,21 @@ class MovieApp extends App {
         }
     }
 
-    formatDataMovies = (movies) => {
+    formatDataMovies = (movies, rating ?: number, categoriesSelected ?: String[] ) => {
         let moviesByCategories = []
 
         movies
             .filter(m => {
+                console.log("ratingSelected " + rating)
                 // if the option rating is set and the movie is below, so we skip it
-                if (this.state.ratingSelected && m.imdb_rating < this.state.ratingSelected) {
+                if (rating && m.imdb_rating < rating) {
                     return false
                 }
 
+
                 // if the option categories is set and the movie dont have the genre, so we skip it
-                if (this.state.categoriesSelected.length && m.genres.length) {
-                    const intersection = this.state.categoriesSelected.filter(element => m.genres.includes(element));
+                if (categoriesSelected.length && m.genres.length) {
+                    const intersection = categoriesSelected.filter(element => m.genres.includes(element));
                     return 0 < intersection.length
                 }
 
@@ -81,6 +83,11 @@ class MovieApp extends App {
         this.setState({
             ratingSelected: ratingSelected,
         })
+
+        console.log("we push")
+        console.log(ratingSelected)
+
+        this.formatDataMovies([...this.state.movies],  ratingSelected, this.state.categoriesSelected)
     }
 
     updateStateCategories = (categorie: string) => {
@@ -97,18 +104,23 @@ class MovieApp extends App {
         this.setState({
             categoriesSelected: [...categoriesSelected],
         })
+
+        this.formatDataMovies([...this.state.movies],  this.state.ratingSelected, categoriesSelected)
     }
 
     updateStateHits = (rows) => {
-        this.formatDataMovies(rows)
+        this.formatDataMovies(rows,  this.state.ratingSelected, this.state.categoriesSelected)
     }
 
     updateStateMovies = (rows) => {
-        this.formatDataMovies(randomize(rows))
+        this.formatDataMovies(randomize(rows),  this.state.ratingSelected, this.state.categoriesSelected)
     }
 
     render() {
         const {Component, pageProps} = this.props
+
+
+        console.log("RENDER _APP")
 
         return (
             <div>
