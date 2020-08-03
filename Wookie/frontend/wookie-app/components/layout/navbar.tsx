@@ -2,7 +2,6 @@ import { getCategories } from "../../actions"
 import {useState, useEffect} from "react";
 import Link from 'next/link'
 
-
 const NavBar = (props) => {
 
     const {categoriesSelected, ratingSelected, updateStateCategories, updateStateRating} = props
