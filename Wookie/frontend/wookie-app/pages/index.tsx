@@ -1,11 +1,10 @@
 import React from "react"
 
-import {getMovies} from "../actions/index"
-import {useState, useEffect} from "react"
+import { getMovies } from "../actions/index"
+import { useEffect } from "react"
 import MovieList from "../components/movie/list"
 import Carrousel from "../components/movie/carrousel";
 import PropTypes from "prop-types";
-import MovieCard from "../components/movie/card";
 
 export default function Home(props) {
 
@@ -27,6 +26,8 @@ export default function Home(props) {
 
     return (
         <React.Fragment>
+            {categories.length == 0 && (<div className="alert alert-danger" role="alert">
+                No data fetched from the API.<br/>Please Check if the Nest.js project is online and on port 3001</div>)}
             {displayCarrouseul && (<Carrousel imgSliders={imgSliders}/>)}
 
             {categories.map((c: string, index: number) => {
@@ -35,7 +36,6 @@ export default function Home(props) {
                         key={index}
                         category={c}
                         movieList={moviesByCategories[c]}
-
                     />
                 )
             })}

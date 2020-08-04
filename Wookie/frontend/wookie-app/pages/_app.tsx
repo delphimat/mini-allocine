@@ -24,7 +24,6 @@ class MovieApp extends App {
     constructor(props) {
         super(props);
 
-
         this.state = {
             movies: [],
             moviesByCategories: [],
