@@ -20,6 +20,9 @@ Please put the `movies.json in the "resources" folder`.
 
 * We should to have the docker image available before the deadline O_O
 
+- docker build --tag wookie-api:1.0 .
+- docker run --publish 3001:3001 --detach --name wapi wookie-api:1.0
+
 ## Dev env
 
 -   npm  start dev
