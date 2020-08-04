@@ -2,7 +2,6 @@ import Slider from "react-slick";
 import Link from "next/link";
 import React from "react";
 import PropTypes from "prop-types";
-import MovieCard from "./card";
 
 
 const Carrousel = (props) => {
@@ -16,7 +15,6 @@ const Carrousel = (props) => {
         slidesToScroll: 2,
         autoplay: true,
         autoplaySpeed: 3000,
-        // centerMode: true,
     };
 
     return (
