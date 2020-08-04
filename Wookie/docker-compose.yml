@@ -3,10 +3,19 @@ version: '3.7'
 services:
   backend:
     build: backend/wookie-api/
+    volumes:
+      - ./backend/wookie-api/src:/usr/src/app/src
     ports:
       - "3001:3001"
 
   frontend:
     build: frontend/wookie-app/
+    volumes:
+      - ./frontend/wookie-app/actions:/usr/src/app/actions
+      - ./frontend/wookie-app/components:/usr/src/app/components
+      - ./frontend/wookie-app/helpers:/usr/src/app/helpers
+      - ./frontend/wookie-app/model:/usr/src/app/model
+      - ./frontend/wookie-app/pages:/usr/src/app/pages
+      - ./frontend/wookie-app/public:/usr/src/app/public
     ports:
       - "3000:3000"

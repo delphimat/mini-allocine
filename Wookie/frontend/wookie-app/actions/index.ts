@@ -3,9 +3,7 @@ import axios from 'axios'
 const BASE_URL = "http://localhost:3001"
 
 export const  getMovies = () => {
-    const toto = axios.get(`${BASE_URL}/v1/movies`).then(res => res.data)
-    console.log(toto)
-    return toto
+    return axios.get(`${BASE_URL}/v1/movies`).then(res => res.data)
 }
 
 export const getCategories = () => {

@@ -39,7 +39,6 @@ class MovieApp extends App {
 
         movies
             .filter(m => {
-                console.log("ratingSelected " + rating)
                 // if the option rating is set and the movie is below, so we skip it
                 if (rating && m.imdb_rating < rating) {
                     return false
@@ -84,9 +83,6 @@ class MovieApp extends App {
             ratingSelected: ratingSelected,
         })
 
-        console.log("we push")
-        console.log(ratingSelected)
-
         this.formatDataMovies([...this.state.movies],  ratingSelected, this.state.categoriesSelected)
     }
 
@@ -118,9 +114,6 @@ class MovieApp extends App {
 
     render() {
         const {Component, pageProps} = this.props
-
-
-        console.log("RENDER _APP")
 
         return (
             <div>

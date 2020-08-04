@@ -14,7 +14,6 @@ export default function Home(props) {
     useEffect(() => {
         const fetchData = async () => {
             if (movies === undefined || movies.length === 0) {
-                console.log("!!! Chargement movie api !!! ")
                 let resMovies = await getMovies()
                 updateStateMovies(resMovies)
             }
