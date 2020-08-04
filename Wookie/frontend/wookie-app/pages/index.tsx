@@ -1,5 +1,4 @@
 import React from "react"
-
 import { getMovies } from "../actions/index"
 import { useEffect } from "react"
 import MovieList from "../components/movie/list"
@@ -26,8 +25,9 @@ export default function Home(props) {
 
     return (
         <React.Fragment>
-            {categories.length == 0 && (<div className="alert alert-danger" role="alert">
-                No data fetched from the API.<br/>Please Check if the Nest.js project is online and on port 3001</div>)}
+            {categories.length == 0 && (<div className="spinner-grow text-dark align-content-center" style={{marginTop: "25%",marginLeft: "50%"}} role="status">
+                <span className="sr-only">Loading...</span>
+            </div>)}
             {displayCarrouseul && (<Carrousel imgSliders={imgSliders}/>)}
 
             {categories.map((c: string, index: number) => {

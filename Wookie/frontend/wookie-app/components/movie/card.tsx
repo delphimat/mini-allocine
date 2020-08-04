@@ -38,7 +38,7 @@ const MovieCard = (props) => {
 }
 
 MovieCard.propTypes = {
-    movieCard: PropTypes.func,
+    movieCard: PropTypes.object,
 };
 
 // Same approach for defaultProps too
