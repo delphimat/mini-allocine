@@ -25,10 +25,11 @@ export default function Home(props) {
 
     return (
         <React.Fragment>
+            {displayCarrouseul && (<Carrousel imgSliders={imgSliders}/>)}
+
             {categories.length == 0 && (<div className="spinner-grow text-dark align-content-center" style={{marginTop: "25%",marginLeft: "50%"}} role="status">
                 <span className="sr-only">Loading...</span>
             </div>)}
-            {displayCarrouseul && (<Carrousel imgSliders={imgSliders}/>)}
 
             {categories.map((c: string, index: number) => {
                 return (
