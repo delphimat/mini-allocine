@@ -31,7 +31,7 @@ const Movie = () => {
             setMovie(resMovie)
         }
         fetchData();
-    }, [])
+    }, [id])
 
     return (
         <div className="row">
